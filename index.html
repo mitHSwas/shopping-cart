@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button  id="phone-decrease" class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input id="phone-amount" type="text" class="form-control text-center" value="1">
-                           <button id="phone-increase" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center" value="1">
+                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$ <span id="phone-price">1219</span></h5>
+                        <h5>$1219</h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button id="case-decrease" class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input id="case-amount" type="text" class="form-control text-center" value="1">
-                           <button id="case-increase" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center" value="1">
+                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$ <span id="case-price">59</span></h5>
+                        <h5>$59</h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -58,11 +58,15 @@
                   <div class="row">
 
                      <div class="col-md-8">
-                        <button type="button" class="btn btn-success" id="totalPriceBtn">Total</button>
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$ <span id="total-price">1278</span></h5>
+                        <h5>$1,278</h5>
+                        <h5>$0</h5>
+                        <h5>$1,278</h5>
                      </div>
                   </div>
                </div>
@@ -73,81 +77,6 @@
          </div>
       </div>
    </section>
-   <script>
-      const phoneMinusBtn = document.getElementById("phone-decrease");
-      let phoneAmount = document.getElementById("phone-amount").value;
-      let phonePrice = document.getElementById("phone-price").innerText;
-
-      //decrease button event handler
-
-      phoneMinusBtn.addEventListener("click", function(){   
-         var newAmount = phoneAmount-- ; 
-         document.getElementById("phone-amount").value = newAmount;
-         if(newAmount < 1){
-            alert("You should select the increase button!! Phone amount can not be negative.")
-            document.getElementById("phone-price").innerText = 00;
-         }
-         else if(newAmount => 1){
-            document.getElementById("phone-price").innerText = newAmount * phonePrice;
-         }
-      })
-
-      const phonePlusBtn = document.getElementById("phone-increase");
-
-      // increase button event handler
-
-      phonePlusBtn.addEventListener("click", function(){
-         var newAmount = phoneAmount++;
-         document.getElementById("phone-amount").value = newAmount;
-         if(newAmount > 0){
-         document.getElementById("phone-price").innerText = newAmount * phonePrice;
-         } 
-         else{
-            document.getElementById("phone-price").innerText = 00;
-         }
-      })
-
-      const caseMinusBtn = document.getElementById("case-decrease");
-      let caseAmount = document.getElementById("case-amount").value;
-      let casePrice = document.getElementById("case-price").innerText;
-
-      //decrease button event handler
-
-      caseMinusBtn.addEventListener("click", function(){   
-         var newAmount = caseAmount-- ; 
-         document.getElementById("case-amount").value = newAmount;
-         if(newAmount < 1){
-            alert("You should select the increase button!! Case amount can not be negative.")
-            document.getElementById("case-price").innerText = 00;
-         }
-         else if(newAmount => 1){
-            document.getElementById("case-price").innerText = newAmount * casePrice;
-         }
-      })
-
-      const casePlusBtn = document.getElementById("case-increase");
-      // increase button event handler
-
-      casePlusBtn.addEventListener("click", function(){
-         var newAmount = caseAmount++;
-         document.getElementById("case-amount").value = newAmount;
-         if(caseAmount > 0){
-         document.getElementById("case-price").innerText = newAmount * casePrice;
-         } 
-         else{
-            document.getElementById("case-price").innerText = 00;
-         }
-      })
-      document.getElementById("totalPriceBtn").addEventListener("click", function(){
-
-         const phonePrice = document.getElementById("phone-price").innerText;
-         const phonePriceInt = parseFloat(phonePrice);
-
-         const casePrice = document.getElementById("case-price").innerText;
-         const casePriceInt = parseFloat(casePrice);
-         document.getElementById("total-price").innerText = phonePriceInt + casePriceInt;
-      })
-   </script>
 </body>
 
 </html>
